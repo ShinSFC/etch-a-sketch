@@ -5,15 +5,15 @@
 // horizontally
 function createColumn(num) {
     for (let i = 1; i <= num; i++) {
-        const sqDiv = document.createElement("div");
+        const column = document.createElement("div");
         const width = 100 / Number(num) // this is correct width percentage
-        sqDiv.style.border = "3px solid black";
-        sqDiv.style.height = "";
+
+        column.style.border = "3px solid black";
+        column.style.height = "";
         
-        console.log(`${width}`);
-        sqDiv.style.width = `${width}%`; // this creats even columns
-        container.appendChild(sqDiv);
+        column.style.width = `${width}%`; // this creats even columns
+        container.appendChild(column);
     }
 }
 
-createColumn(7)
+createColumn(5)
