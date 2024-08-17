@@ -1,19 +1,27 @@
-// create a function that takes a parameter and creates a 
-// parameter squared number of square divs inside the container
-
 // this function below will create divs side by side
-// horizontally
+// horizontal columns
 function createColumn(num) {
     for (let i = 1; i <= num; i++) {
         const column = document.createElement("div");
-        const width = 100 / Number(num) // this is correct width percentage
-
-        column.style.border = "3px solid black";
-        column.style.height = "";
+        const width = 100 / Number(num) // this is correct width percentage   
         
         column.style.width = `${width}%`; // this creats even columns
+        column.style.maxHeight = '100%'; // max height does work but won't prevent squares from going outside border
+        // column.style.boxSizing = "border-box"; // not sure if this is needed
         container.appendChild(column);
+
+        // this creates the squares
+        for (let i = 1; i <= num; i++) {
+            const square = document.createElement("div");
+            // const sqHeight = width
+
+            square.style.border = "1px solid black"; // this causes the height to exceed the parent div
+            square.style.boxSizing = "border-box"; // this prevents the height to exceedt the parent div
+            square.style.height = `${width}%`;
+            square.style.backgroundColor = 'yellow';
+            column.appendChild(square);
+        }
     }
 }
 
-createColumn(5)
+createColumn(65)
