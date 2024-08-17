@@ -5,8 +5,7 @@ document.body.insertBefore(startBtn, container);
 
 startBtn.addEventListener("click", () => {
     let num = prompt("Enter the number of squares per side: (must be less than 100)");
-    square.remove();
-    column.remove();
+    container.innerHTML = '';
     createGrid(num);
 });
 
