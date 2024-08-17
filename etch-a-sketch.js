@@ -1,6 +1,8 @@
 // this function below will create divs side by side
 // horizontal columns
-function createColumn(num) {
+// const square = ''
+createGrid(50)
+function createGrid(num) {
     for (let i = 1; i <= num; i++) {
         const column = document.createElement("div");
         const width = 100 / Number(num) // this is correct width percentage   
@@ -14,14 +16,22 @@ function createColumn(num) {
         for (let i = 1; i <= num; i++) {
             const square = document.createElement("div");
             // const sqHeight = width
-
             square.style.border = "1px solid black"; // this causes the height to exceed the parent div
             square.style.boxSizing = "border-box"; // this prevents the height to exceedt the parent div
             square.style.height = `${width}%`;
             square.style.backgroundColor = 'yellow';
             column.appendChild(square);
+            
+            // hover to change color
+            square.addEventListener("mouseenter", () => { 
+                square.style.backgroundColor = "red";
+            }); // mouseenter and mousemove works to hover but not click
         }
     }
 }
 
-createColumn(65)
+// createGrid(100)
+
+// commit:
+// change function name to createGrid
+
