@@ -1,7 +1,14 @@
 // this function below will create divs side by side
 // horizontal columns
-// const square = ''
-createGrid(50)
+gridBtn = document.createElement("button");
+gridBtn.textContent = "Start"
+container = document.querySelector("#container");
+document.body.insertBefore(gridBtn, container);
+
+// gridBtn.addEventListener("click", () => {
+//      createGrid(50);
+// });
+
 function createGrid(num) {
     for (let i = 1; i <= num; i++) {
         const column = document.createElement("div");
