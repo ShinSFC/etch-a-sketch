@@ -1,15 +1,19 @@
-// this function below will create divs side by side
-// horizontal columns
-gridBtn = document.createElement("button");
-gridBtn.textContent = "Start"
+startBtn = document.createElement("button");
+startBtn.textContent = "Start";
 container = document.querySelector("#container");
-document.body.insertBefore(gridBtn, container);
+document.body.insertBefore(startBtn, container);
 
-// gridBtn.addEventListener("click", () => {
-//      createGrid(50);
-// });
+startBtn.addEventListener("click", () => {
+    let num = prompt("Enter the number of squares per side: (must be less than 100)");
+    square.remove();
+    column.remove();
+    createGrid(num);
+});
+
+//createGrid(50);
 
 function createGrid(num) {
+    // this creates the columns
     for (let i = 1; i <= num; i++) {
         const column = document.createElement("div");
         const width = 100 / Number(num) // this is correct width percentage   
@@ -19,7 +23,7 @@ function createGrid(num) {
         // column.style.boxSizing = "border-box"; // not sure if this is needed
         container.appendChild(column);
 
-        // this creates the squares
+        // this creates the squares inside the columns
         for (let i = 1; i <= num; i++) {
             const square = document.createElement("div");
             // const sqHeight = width
@@ -33,12 +37,10 @@ function createGrid(num) {
             square.addEventListener("mouseenter", () => { 
                 square.style.backgroundColor = "red";
             }); // mouseenter and mousemove works to hover but not click
-        }
+        }       // dragover, 
     }
 }
 
 // createGrid(100)
 
-// commit:
-// change function name to createGrid
 
